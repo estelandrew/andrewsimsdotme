@@ -1,0 +1,420 @@
+$color-contrast: #4c4c4c;
+$color-orange-dark: #b27300;
+$color-blue: #2c83ec;
+$color-gray: #d3d3d3;
+$color-offwhite: #f9f9fa;
+$border-orange: 3px solid $color-orange-dark;
+$font-libre: "Libre Baskerville", serif;
+$font-sans: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+@mixin bp($point) {
+  @if $point == papa-bear {
+    @media (min-width: 1250px) {
+      @content;
+    }
+  } @else if $point == mama-bear {
+    @media (min-width: 600px) {
+      @content;
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-libre;
+  color: #494c4e;
+  background-color: #ffffff;
+  position: relative;
+  font-size: 1em;
+  background-color: $color-offwhite;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* START header grid */
+div.header-grid {
+  font-family: $font-sans;
+  font-weight: 700;
+  display: grid;
+  grid-template-rows: auto auto;
+  background-color: #000000;
+  padding: 0.75em;
+  height: 1.5rem;
+}
+
+div.header-grid-item-1 {
+  grid-column: 1 / 2;
+  margin-left: 1em;
+  margin-top: 0.1em;
+  .logo {
+    color: #cccccc;
+    padding: 0.4em;
+    border: 2px solid #cccccc;
+    border-radius: 0px;
+    font-weight: 900;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+div.header-grid-item-2 {
+  grid-column: 2 / 3;
+  text-align: right;
+  span {
+    &.menu-button {
+      color: #cccccc;
+      margin-right: 2%;
+      display: block;
+      &:hover {
+        cursor: pointer;
+      }
+      @include bp(mama-bear) {
+        display: none;
+      }
+    }
+  }
+  nav {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    margin-top: 1em;
+    /*height: 7.24em;*/
+    background-color: #000000;
+    overflow: hidden;
+    &.hide-nav {
+      display: none;
+      @include bp(mama-bear) {
+        display: inline;
+      }
+    }
+    @include bp(mama-bear) {
+      background-color: #000000;
+      display: inline;
+    }
+    a {
+      color: #ffffff;
+      margin-right: 5%;
+      /*following are mobile specific */
+      display: block;
+      background-color: $color-contrast;
+      width: 100%;
+      text-align: center;
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid #cccccc;
+      @include bp(mama-bear) {
+        color: #cccccc;
+        display: inline;
+        background-color: #000000;
+        padding-top: 0;
+        padding-bottom: 0;
+        border: none;
+        &:hover {
+          background-color: #000000;
+        }
+      }
+    }
+  }
+}
+/* END header grid */
+
+/* START home page main content code */
+div#wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 6rem);
+  padding: 0 5% 0 5%;
+  & p:last-of-type {
+    padding-bottom: 5%;
+  }
+  @include bp(mama-bear) {
+    padding: 0;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include bp(papa-bear) {
+    padding: 0;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+a.body-link {
+  color: $color-blue;
+  font-family: $font-sans;
+  text-decoration: underline;
+  &:hover {
+    color: #6ba8f1;
+  }
+}
+
+.link-button {
+  display: block;
+  width: 12rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  font-family: $font-sans;
+  background-color: $color-blue;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+}
+
+div.body-grid-welcome {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  padding-top: 5%;
+  @include bp(mama-bear) {
+    grid-template-columns: 20% 80%;
+  }
+}
+
+div.body-grid-welcome-item-1 {
+  text-align: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  img.welcome-headshot {
+    width: 33%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    @include bp(mama-bear) {
+      width: 100%;
+    }
+  }
+}
+
+div.body-grid-welcome-item-2 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  @include bp(mama-bear) {
+    padding: 5%;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    position: relative;
+  }
+  .welcome-text-container {
+    border-bottom: $border-orange;
+    padding: 7% 0 7% 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    @include bp(mama-bear) {
+      padding: 2% 0 0 0;
+      border-bottom: none;
+      border-top: $border-orange;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @media (min-width: 800px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-top: 0;
+  padding-top: 5%;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.25em;
+  font-weight: 700;
+  font-family: $font-sans;
+  &.item-heading {
+    color: $color-orange-dark;
+  }
+}
+
+.body-heading {
+  font-family: $font-sans;
+}
+
+span.highlight {
+  color: $color-blue;
+  font-family: $font-sans;
+}
+
+div.body-grid-projects {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 100%;
+  position: relative;
+  padding: 2%;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  @media (min-width: 800px) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 15em;
+    grid-template-columns: auto auto;
+  }
+  @include bp(papa-bear) {
+    padding: 0 2% 0 2%;
+  }
+  &-item-1 {
+    grid-row: 2 / 3;
+    img {
+      height: auto;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid #e2e4e6;
+    }
+    @media (min-width: 550px) {
+      img {
+        width: 60%;
+      }
+    }
+    @media (min-width: 800px) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      img {
+        height: 200px;
+        width: auto;
+        margin-top: 5%;
+      }
+    }
+  }
+  &-item-2 {
+    padding-left: 5%;
+    grid-row: 1 / 2;
+    @media (min-width: 800px) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+    @include bp(papa-bear) {
+    }
+  }
+}
+/* END home page main content code */
+
+button.btn-projects {
+  background-color: $color-blue;
+}
+
+div#connect-body {
+  text-align: center;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+  & li {
+    font-size: 1.15rem;
+    list-style-type: square;
+    padding-top: 2%;
+  }
+  @include bp(mama-bear) {
+    width: 80%;
+  }
+  @include bp(papa-bear) {
+    width: 70%;
+  }
+}
+
+form#contact-form {
+  font-size: 1.15rem;
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 2%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .link-button {
+    cursor: pointer;
+    font-size: 1.15rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    &:hover {
+      background-color: #6ba8f1;
+    }
+  }
+}
+
+div#contact-page-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 2;
+  text-align: center;
+  &-panel {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25vh;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25em;
+    @include bp(mama-bear) {
+      width: 60%;
+      font-size: 1.5em;
+      padding: 2%;
+    }
+    @include bp(papa-bear) {
+      width: 45%;
+    }
+  }
+  &-message {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    #btn-close-overlay {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.25rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #6ba8f1;
+      }
+    }
+  }
+}
+
+.overlay-hidden {
+  display: none;
+}
+
+/* START footer code */
+div.footer-text {
+  height: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.6rem;
+  @include bp(mama-bear) {
+  }
+}
+/* END footer code */
