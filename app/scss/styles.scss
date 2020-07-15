@@ -42,17 +42,21 @@ a {
 div.header-grid {
   font-family: $font-sans;
   font-weight: 700;
-  display: grid;
-  grid-template-rows: auto auto;
+  display: -ms-grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   background-color: #000000;
-  padding: 0.75em;
+  padding: 0.75em 0 0.75em 0;
   height: 1.5rem;
 }
 
 div.header-grid-item-1 {
+  -ms-grid-column: 1;
   grid-column: 1 / 2;
-  margin-left: 1em;
   margin-top: 0.1em;
+  @include bp(mama-bear) {
+    margin-left: 1rem;
+  }
   .logo {
     color: #cccccc;
     padding: 0.4em;
@@ -66,6 +70,7 @@ div.header-grid-item-1 {
 }
 
 div.header-grid-item-2 {
+  -ms-grid-column: 2;
   grid-column: 2 / 3;
   text-align: right;
   span {
@@ -132,9 +137,6 @@ div#wrapper {
   z-index: 1;
   min-height: calc(100vh - 6rem);
   padding: 0 5% 0 5%;
-  & p:last-of-type {
-    padding-bottom: 5%;
-  }
   @include bp(mama-bear) {
     padding: 0;
     width: 95%;
@@ -173,36 +175,45 @@ a.body-link {
 
 div.body-grid-welcome {
   width: 100%;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 100%;
   padding-top: 5%;
   @include bp(mama-bear) {
+    -ms-grid-columns: 20% 80%;
     grid-template-columns: 20% 80%;
   }
 }
 
 div.body-grid-welcome-item-1 {
   text-align: center;
+  -ms-grid-column: 1;
   grid-column: 1 / 2;
+  -ms-grid-row: 1;
   grid-row: 1 / 2;
   img.welcome-headshot {
-    width: 33%;
-    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 200px;
     margin: 0;
     padding: 0;
     border-radius: 50%;
     @include bp(mama-bear) {
-      width: 100%;
     }
   }
 }
 
 div.body-grid-welcome-item-2 {
+  -ms-grid-column: 1;
   grid-column: 1 / 2;
+  -ms-grid-row: 2;
   grid-row: 2 / 3;
   @include bp(mama-bear) {
     padding: 5%;
+    -ms-grid-column: 2;
     grid-column: 2 / 3;
+    -ms-grid-row: 1;
     grid-row: 1 / 2;
     position: relative;
   }
@@ -226,7 +237,7 @@ div.body-grid-welcome-item-2 {
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-top: 0;
   padding-top: 5%;
   text-align: center;
@@ -250,25 +261,43 @@ span.highlight {
   font-family: $font-sans;
 }
 
+div#home-page-contact-container {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  p#cta-line {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0;
+  }
+  #contact-form {
+    text-align: left;
+    width: 25rem;
+    max-width: 97%;
+    margin: 0;
+  }
+}
+
 div.body-grid-projects {
-  background-color: #ffffff;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 100%;
   grid-template-columns: 100%;
   position: relative;
   padding: 2%;
   font-size: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   @media (min-width: 800px) {
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
     min-height: 15em;
+    -ms-grid-columns: auto auto;
     grid-template-columns: auto auto;
   }
   @include bp(papa-bear) {
     padding: 0 2% 0 2%;
   }
   &-item-1 {
+    -ms-grid-row: 2;
     grid-row: 2 / 3;
     img {
       height: auto;
@@ -283,7 +312,9 @@ div.body-grid-projects {
       }
     }
     @media (min-width: 800px) {
+      -ms-grid-column: 1;
       grid-column: 1 / 2;
+      -ms-grid-row: 1;
       grid-row: 1 / 2;
       img {
         height: 200px;
@@ -294,9 +325,12 @@ div.body-grid-projects {
   }
   &-item-2 {
     padding-left: 5%;
+    -ms-grid-row: 1;
     grid-row: 1 / 2;
     @media (min-width: 800px) {
+      -ms-grid-column: 2;
       grid-column: 2 / 3;
+      -ms-grid-row: 1;
       grid-row: 1 / 2;
     }
     @include bp(papa-bear) {
@@ -339,6 +373,15 @@ form#contact-form {
     border-radius: 5px;
     box-sizing: border-box;
   }
+  input[type="text"].form-field-error {
+    border: 2px solid #ff0000;
+  }
+  input[type="email"].form-field-error {
+    border: 2px solid #ff0000;
+  }
+  textarea.form-field-error {
+    border: 2px solid #ff0000;
+  }
   .link-button {
     cursor: pointer;
     font-size: 1.15rem;
@@ -349,6 +392,11 @@ form#contact-form {
       background-color: #6ba8f1;
     }
   }
+}
+
+ul.error-list {
+  color: #ff0000;
+  text-align: left;
 }
 
 div#contact-page-overlay {

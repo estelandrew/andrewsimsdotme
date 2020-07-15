@@ -23,7 +23,27 @@
         <p>Wordpress is a powerful, open source CMS which, according to their website, is used by about 35% of the web. I have experience developing custom Wordpress sites, including building visual themes from scratch.</p>
         <h3 class="item-heading">UI/UX Design</h3>
         <p>User Interface (UI) and User Experience (UX) design involve planning and iterating a site's structure and layout, which is a necessary first step in building any web site or application. I have experience using prototyping tools such as Adobe XD for this process.</p>
-      </div>
+        <h2 class="body-heading">My Projects</h2>
+        <div class="body-grid-projects card">
+          <div class="body-grid-projects-item-1">
+            <img src="images/thumbnail_monty-hall.png" />
+          </div>
+          <div class="body-grid-projects-item-2">
+            <div class="project-text-container">
+              <h3 class="item-heading">Monty Hall Problem</h3>
+              This is a game that I programmed based on the Monty Hall Problem brain teaser. The player guesses which door the prize behind, and the game tracks how many times a player wins when sticking with their first guess as well as how many times they win after switching their guess when given the opportunity.<br /><br />
+              <a class="link-button" target="_blank" href="https://codepen.io/andrew_estel/full/XWXmwPQ">View at Codepen &rarr;</a><br />
+            </div>
+          </div>
+        </div>
+        <div id="home-page-contact-container">
+          <p id="cta-line">Interested in working together or just want to say Hello?<br>
+                          <span style="font-size:.95rem;">Send me an email below.</span></p>
+          <?php include './include/formHandler.php';
+                include './include/contactForm.php';?>
+        </div>
+      </div>    
+      <?php include './include/successOverlay.php'; ?>  
     </main>
 
 <?php include './include/footer.php'; ?>
