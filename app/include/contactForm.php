@@ -1,4 +1,5 @@
-<form id="contact-form" method="post">
+<?php include './include/formHandler.php'; ?>
+<form id="contact-form" method="post" data-valid="<?php echo ($isPost AND !$isValidForm) ? 'not-valid' : ''; ?>">
 <input 
     class="<?php echo ($isPost AND empty($name)) ? "form-field-error" : "" ?>" id="name-field"
     type="text"

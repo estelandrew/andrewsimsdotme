@@ -1,6 +1,4 @@
-<?php include './include/header.php';
-      include './include/formHandler.php';  
-?>
+<?php include './include/header.php'; ?>
     <main>
       <div id="wrapper">
         <div id="connect-body">  
@@ -11,4 +9,5 @@
       </div>
       <?php include './include/successOverlay.php' ?>
     </main>
+    <script>jumpToFormIfInvalid();</script>
 <?php include './include/footer.php'; ?>

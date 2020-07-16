@@ -43,6 +43,7 @@ div.header-grid {
   font-family: $font-sans;
   font-weight: 700;
   display: -ms-grid;
+  display: grid;
   -ms-grid-columns: 1fr 1fr;
   grid-template-columns: auto auto;
   background-color: #000000;
@@ -53,6 +54,7 @@ div.header-grid {
 div.header-grid-item-1 {
   -ms-grid-column: 1;
   grid-column: 1 / 2;
+  grid-row: 1;
   margin-top: 0.1em;
   @include bp(mama-bear) {
     margin-left: 1rem;
@@ -72,6 +74,7 @@ div.header-grid-item-1 {
 div.header-grid-item-2 {
   -ms-grid-column: 2;
   grid-column: 2 / 3;
+  grid-row: 1;
   text-align: right;
   span {
     &.menu-button {

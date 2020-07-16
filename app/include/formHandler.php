@@ -1,5 +1,5 @@
 <?php
-
+$isValidForm = false;
 $isPost = ($_SERVER['REQUEST_METHOD'] === 'POST');
   if ($isPost) {
     function spam_scrubber($value) {

@@ -39,11 +39,11 @@
         <div id="home-page-contact-container">
           <p id="cta-line">Interested in working together or just want to say Hello?<br>
                           <span style="font-size:.95rem;">Send me an email below.</span></p>
-          <?php include './include/formHandler.php';
-                include './include/contactForm.php';?>
+          <?php include './include/contactForm.php';?>
         </div>
       </div>    
       <?php include './include/successOverlay.php'; ?>  
     </main>
+    <script>jumpToFormIfInvalid();</script>
 
 <?php include './include/footer.php'; ?>
