@@ -18,7 +18,9 @@
     id="message-field" 
     name="body" 
     placeholder="Message" rows="10"><?php echo ($isPost) ? "$body" : ""; ?></textarea><br>
-<input class="link-button" type="submit" name="submit" value="Send">
+<button class="link-button">
+        <span class="button-text">Send </span>
+        <span class="material-icons">send</span></button>
 </form>
 <?php if ($isPost AND !$isValidForm) {        
 echo '<ul class="error-list">';    

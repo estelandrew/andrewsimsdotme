@@ -2,7 +2,6 @@
 
     <main>
       <div id="wrapper">
-        <!-- START body welcome area-->
         <div class="body-grid-welcome">
           <div class="body-grid-welcome-item-1">
             <img class="welcome-headshot" src="images/welcome-headershot.png" />
@@ -11,9 +10,7 @@
             <div class="welcome-text-container">Hi! My name is <span class="highlight">Andrew Sims</span>. I'm a web developer located in the Columbus, Ohio area. I specialize in creating modern web applications with responsive designs and delightful user experiences.</div>
           </div>
         </div>
-        <!-- END body welcome area-->
 
-        <!-- START body services area -->
         <h2 class="body-heading">Skills</h2>
         <h3 class="item-heading">Front-End Development</h3>
         <p>I build out visual components of websites and applications as well as integrate them with a database or Content Management System (CMS). Using HTML, CSS, JavaScript, and other modern or popular languages, I can create fast, interactive web applications.</p>
@@ -37,7 +34,7 @@
           </div>
         </div>
         <div id="home-page-contact-container">
-          <p id="cta-line">Interested in working together or just want to say Hello?<br>
+          <p id="cta-line">Interested in working together or just want to say hello?<br>
                           <span style="font-size:.95rem;">Send me an email below.</span></p>
           <?php include './include/contactForm.php';?>
         </div>

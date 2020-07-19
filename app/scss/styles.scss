@@ -38,7 +38,10 @@ a {
   }
 }
 
-/* START header grid */
+.material-icons {
+  display: inline;
+}
+
 div.header-grid {
   font-family: $font-sans;
   font-weight: 700;
@@ -47,7 +50,7 @@ div.header-grid {
   -ms-grid-columns: 1fr 1fr;
   grid-template-columns: auto auto;
   background-color: #000000;
-  padding: 0.75em 0 0.75em 0;
+  padding: 0.75em 0.75rem 0.75em 0.75rem;
   height: 1.5rem;
 }
 
@@ -55,9 +58,12 @@ div.header-grid-item-1 {
   -ms-grid-column: 1;
   grid-column: 1 / 2;
   grid-row: 1;
-  margin-top: 0.1em;
+  padding: 0.1em;
   @include bp(mama-bear) {
     margin-left: 1rem;
+  }
+  a.home-link {
+    text-decoration: none;
   }
   .logo {
     color: #cccccc;
@@ -75,12 +81,16 @@ div.header-grid-item-2 {
   -ms-grid-column: 2;
   grid-column: 2 / 3;
   grid-row: 1;
+  margin-right: 0;
+  margin-left: auto;
   text-align: right;
+  width: 100%;
   span {
     &.menu-button {
       color: #cccccc;
       margin-right: 2%;
       display: block;
+      height: 2.24rem;
       &:hover {
         cursor: pointer;
       }
@@ -93,10 +103,9 @@ div.header-grid-item-2 {
     position: relative;
     z-index: 2;
     box-sizing: border-box;
-    margin-top: 1em;
-    /*height: 7.24em;*/
     background-color: #000000;
     overflow: hidden;
+    width: 100%;
     &.hide-nav {
       display: none;
       @include bp(mama-bear) {
@@ -110,14 +119,17 @@ div.header-grid-item-2 {
     a {
       color: #ffffff;
       margin-right: 5%;
-      /*following are mobile specific */
       display: block;
       background-color: $color-contrast;
       width: 100%;
       text-align: center;
-      padding-top: 0.25em;
-      padding-bottom: 0.25em;
+      padding-top: 1.15rem;
+      padding-bottom: 1.15rem;
       border-bottom: 1px solid #cccccc;
+      text-decoration: none;
+      &:hover {
+        background-color: #5d5d5d;
+      }
       @include bp(mama-bear) {
         color: #cccccc;
         display: inline;
@@ -127,19 +139,24 @@ div.header-grid-item-2 {
         border: none;
         &:hover {
           background-color: #000000;
+          text-decoration: underline;
         }
       }
     }
   }
+  @include bp(mama-bear) {
+    text-align: right;
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
-/* END header grid */
 
-/* START home page main content code */
 div#wrapper {
   position: relative;
   z-index: 1;
   min-height: calc(100vh - 6rem);
   padding: 0 5% 0 5%;
+  line-height: 1.6;
   @include bp(mama-bear) {
     padding: 0;
     width: 95%;
@@ -149,6 +166,7 @@ div#wrapper {
   @include bp(papa-bear) {
     padding: 0;
     width: 75%;
+    max-width: 1250px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -174,9 +192,14 @@ a.body-link {
   color: #ffffff;
   font-weight: 600;
   border: none;
+  &:hover {
+    text-decoration: none;
+    background-color: #6ba8f1;
+  }
 }
 
 div.body-grid-welcome {
+  line-height: 1.6;
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -278,6 +301,9 @@ div#home-page-contact-container {
     max-width: 97%;
     margin: 0;
   }
+  .material-icons {
+    font-size: 1rem;
+  }
 }
 
 div.body-grid-projects {
@@ -339,15 +365,17 @@ div.body-grid-projects {
     @include bp(papa-bear) {
     }
   }
+  &--projects-page {
+    margin-bottom: 2em;
+  }
 }
-/* END home page main content code */
 
 button.btn-projects {
   background-color: $color-blue;
 }
 
 div#connect-body {
-  text-align: center;
+  text-align: left;
   width: 97%;
   margin-left: auto;
   margin-right: auto;
@@ -357,10 +385,15 @@ div#connect-body {
     padding-top: 2%;
   }
   @include bp(mama-bear) {
-    width: 80%;
+    width: 25rem;
   }
   @include bp(papa-bear) {
-    width: 70%;
+    width: 25rem;
+  }
+  p#cta-line {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0;
   }
 }
 
@@ -394,6 +427,12 @@ form#contact-form {
     &:hover {
       background-color: #6ba8f1;
     }
+  }
+  .material-icons {
+    font-size: 1rem;
+  }
+  @include bp(mama-bear) {
+    width: 25rem;
   }
 }
 
@@ -455,7 +494,26 @@ div#contact-page-overlay {
   display: none;
 }
 
-/* START footer code */
+div.flex-container {
+  display: flex;
+  &--contact-page {
+    font-size: 1rem;
+    @include bp(mama-bear) {
+      font-size: 1.15rem;
+    }
+  }
+  &--linkedin {
+    margin-top: 4rem;
+  }
+}
+
+.email-icon {
+  font-size: 2.2rem;
+  margin-left: -0.25rem;
+  padding: 0;
+  color: $color-orange-dark;
+}
+
 div.footer-text {
   height: 1.5rem;
   padding-top: 0.75rem;
@@ -468,4 +526,3 @@ div.footer-text {
   @include bp(mama-bear) {
   }
 }
-/* END footer code */

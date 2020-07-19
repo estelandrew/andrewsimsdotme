@@ -3,7 +3,7 @@
     <main class="relative">
       <div id="wrapper">
         <h2 class="body-heading">Projects</h2>
-        <div class="body-grid-projects card">
+        <div class="body-grid-projects body-grid-projects--projects-page card">
           <div class="body-grid-projects-item-1">
             <img src="images/thumbnail_monty-hall.png" />
           </div>

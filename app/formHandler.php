@@ -30,7 +30,6 @@ $isPost = ($_SERVER['REQUEST_METHOD'] === 'POST');
       $toEmail = "andrew@andrewsims.me";
       $subject = "AndrewSims.me Contact Form Submission";
       $from = "From: {$email}";
-      $sendmailPath = "-fandrew@andrewsims.me";
       mail($toEmail, $subject, $emailBody, $from);
       $response = 'Your email has been sent!';
       //echo "$toEmail, \n$subject, \n$emailBody, \n$from";
