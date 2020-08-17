@@ -140,8 +140,8 @@ a.body-link {
 
 .link-button {
   display: block;
-  width: 12rem;
-  padding: 0.5rem;
+  width: auto;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 10px;
   text-align: center;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -149,9 +149,14 @@ a.body-link {
   color: #ffffff;
   font-weight: 600;
   border: none; }
+  @media (min-width: 600px) {
+    .link-button {
+      min-width: 10rem; } }
   .link-button:hover {
     text-decoration: none;
     background-color: #6ba8f1; }
+  .link-button.project-button-1 {
+    margin-right: 0.5rem; }
 
 div.body-grid-welcome {
   line-height: 1.6;
@@ -232,15 +237,22 @@ span.highlight {
 
 div#home-page-contact-container {
   padding-top: 5%;
-  padding-bottom: 5%; }
+  padding-bottom: 5%;
+  background-color: #e9f2fd;
+  max-width: 25rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px; }
   div#home-page-contact-container p#cta-line {
     font-size: 1.25rem;
     font-weight: 700;
-    padding: 0; }
+    padding: 0;
+    margin: 0; }
   div#home-page-contact-container #contact-form {
     text-align: left;
-    width: 25rem;
-    max-width: 97%;
+    width: 100%;
+    max-width: 25rem;
     margin: 0; }
   div#home-page-contact-container .material-icons {
     font-size: 1rem; }
@@ -252,8 +264,13 @@ div.body-grid-projects {
   grid-template-columns: 100%;
   position: relative;
   padding: 2%;
+  padding-bottom: 2rem;
   font-size: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  div.body-grid-projects.project-not-first {
+    margin-top: 2rem; }
+  div.body-grid-projects.project-last {
+    margin-bottom: 5rem; }
   @media (min-width: 800px) {
     div.body-grid-projects {
       margin-left: auto;
@@ -263,7 +280,7 @@ div.body-grid-projects {
       grid-template-columns: auto auto; } }
   @media (min-width: 1250px) {
     div.body-grid-projects {
-      padding: 0 2% 0 2%; } }
+      padding: 0.5rem 2% 0 2%; } }
   div.body-grid-projects-item-1 {
     -ms-grid-row: 2;
     grid-row: 2 / 3; }
@@ -299,6 +316,9 @@ div.body-grid-projects {
   div.body-grid-projects--projects-page {
     margin-bottom: 2em; }
 
+div.flex-container--project-buttons {
+  margin-bottom: 1rem; }
+
 button.btn-projects {
   background-color: #2c83ec; }
 
@@ -307,16 +327,18 @@ div#connect-body {
   width: 97%;
   margin-left: auto;
   margin-right: auto; }
+  div#connect-body #form-container {
+    background-color: #e9f2fd;
+    padding: 2rem;
+    border-radius: 10px; }
   div#connect-body li {
     font-size: 1.15rem;
     list-style-type: square;
     padding-top: 2%; }
   @media (min-width: 600px) {
     div#connect-body {
-      width: 25rem; } }
-  @media (min-width: 1250px) {
-    div#connect-body {
-      width: 25rem; } }
+      width: 75%;
+      max-width: 75rem; } }
   div#connect-body p#cta-line {
     font-size: 1.25rem;
     font-weight: 700;
@@ -351,7 +373,7 @@ form#contact-form {
     font-size: 1rem; }
   @media (min-width: 600px) {
     form#contact-form {
-      width: 25rem; } }
+      width: 100%; } }
 
 ul.error-list {
   color: #ff0000;
@@ -411,8 +433,10 @@ div.flex-container {
     @media (min-width: 600px) {
       div.flex-container--contact-page {
         font-size: 1.15rem; } }
-  div.flex-container--linkedin {
-    margin-top: 4rem; }
+  div.flex-container--first {
+    margin-top: 2rem; }
+  div.flex-container--last {
+    margin-bottom: 2rem; }
 
 .email-icon {
   font-size: 2.2rem;

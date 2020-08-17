@@ -183,8 +183,8 @@ a.body-link {
 
 .link-button {
   display: block;
-  width: 12rem;
-  padding: 0.5rem;
+  width: auto;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 10px;
   text-align: center;
   font-family: $font-sans;
@@ -192,9 +192,15 @@ a.body-link {
   color: #ffffff;
   font-weight: 600;
   border: none;
+  @include bp(mama-bear) {
+    min-width: 10rem;
+  }
   &:hover {
     text-decoration: none;
     background-color: #6ba8f1;
+  }
+  &.project-button-1 {
+    margin-right: 0.5rem;
   }
 }
 
@@ -290,15 +296,22 @@ span.highlight {
 div#home-page-contact-container {
   padding-top: 5%;
   padding-bottom: 5%;
+  background-color: #e9f2fd;
+  max-width: 25rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
   p#cta-line {
     font-size: 1.25rem;
     font-weight: 700;
     padding: 0;
+    margin: 0;
   }
   #contact-form {
     text-align: left;
-    width: 25rem;
-    max-width: 97%;
+    width: 100%;
+    max-width: 25rem;
     margin: 0;
   }
   .material-icons {
@@ -313,7 +326,14 @@ div.body-grid-projects {
   grid-template-columns: 100%;
   position: relative;
   padding: 2%;
+  padding-bottom: 2rem;
   font-size: 1rem;
+  &.project-not-first {
+    margin-top: 2rem;
+  }
+  &.project-last {
+    margin-bottom: 5rem;
+  }
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   @media (min-width: 800px) {
     margin-left: auto;
@@ -323,7 +343,7 @@ div.body-grid-projects {
     grid-template-columns: auto auto;
   }
   @include bp(papa-bear) {
-    padding: 0 2% 0 2%;
+    padding: 0.5rem 2% 0 2%;
   }
   &-item-1 {
     -ms-grid-row: 2;
@@ -370,6 +390,10 @@ div.body-grid-projects {
   }
 }
 
+div.flex-container--project-buttons {
+  margin-bottom: 1rem;
+}
+
 button.btn-projects {
   background-color: $color-blue;
 }
@@ -379,16 +403,19 @@ div#connect-body {
   width: 97%;
   margin-left: auto;
   margin-right: auto;
+  #form-container {
+    background-color: #e9f2fd;
+    padding: 2rem;
+    border-radius: 10px;
+  }
   & li {
     font-size: 1.15rem;
     list-style-type: square;
     padding-top: 2%;
   }
   @include bp(mama-bear) {
-    width: 25rem;
-  }
-  @include bp(papa-bear) {
-    width: 25rem;
+    width: 75%;
+    max-width: 75rem;
   }
   p#cta-line {
     font-size: 1.25rem;
@@ -432,7 +459,7 @@ form#contact-form {
     font-size: 1rem;
   }
   @include bp(mama-bear) {
-    width: 25rem;
+    width: 100%;
   }
 }
 
@@ -502,8 +529,11 @@ div.flex-container {
       font-size: 1.15rem;
     }
   }
-  &--linkedin {
-    margin-top: 4rem;
+  &--first {
+    margin-top: 2rem;
+  }
+  &--last {
+    margin-bottom: 2rem;
   }
 }
 
